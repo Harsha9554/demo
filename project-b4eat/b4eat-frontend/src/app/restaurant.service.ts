@@ -11,4 +11,8 @@ export class RestaurantService {
   createRestaurant(title : string) {
     return this.webReqService.post('restaurants', {title});
   }
+
+  getRestaurants(){
+    return this.webReqService.get('restaurants');
+  }
 }

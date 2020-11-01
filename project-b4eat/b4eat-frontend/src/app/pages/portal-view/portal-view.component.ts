@@ -9,6 +9,7 @@ import { RestaurantService } from '../../restaurant.service';
 })
 export class PortalViewComponent implements OnInit {
 
+  restaurants: any[];
   constructor(private restaurantService : RestaurantService, private route: ActivatedRoute) { }
 
   ngOnInit(){
@@ -17,6 +18,10 @@ export class PortalViewComponent implements OnInit {
         console.log(params);
       }
     )
+
+    this.restaurantService.getRestaurants().subscribe((restaurants : any[])=>{
+      this.restaurants = restaurants;
+    })
   }
 
 }

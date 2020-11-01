@@ -9,13 +9,12 @@
           <a class="res-menu-item is-active">
             <p>Res #1</p>
           </a>
-          <a class="res-menu-item">
-            <p>Res #2</p>
-          </a>
-          <a class="res-menu-item">
-            <p>Res #3</p>
+          <a class="res-menu-item" *ngFor="let rest of restaurants">
+            <p> {{rest.title}}</p>
           </a>
         </div>
+
+
 
         <button class="button is-primary has-text-white" routerLink="/new-restaurant">+ New Restaurant</button>
 
