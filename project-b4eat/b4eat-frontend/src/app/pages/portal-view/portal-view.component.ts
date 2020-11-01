@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { RestaurantService } from '../../restaurant.service';
 
 @Component({
@@ -8,9 +9,14 @@ import { RestaurantService } from '../../restaurant.service';
 })
 export class PortalViewComponent implements OnInit {
 
-  constructor(private restaurantService : RestaurantService) { }
+  constructor(private restaurantService : RestaurantService, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.route.params.subscribe(
+      (params: Params) => {
+        console.log(params);
+      }
+    )
   }
 
 }

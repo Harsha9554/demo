@@ -4,8 +4,11 @@ import { PortalViewComponent } from './pages/portal-view/portal-view.component';
 import { NewRestaurantComponent } from './pages/new-restaurant/new-restaurant.component';
 
 const routes: Routes = [
-  { path: '', component: PortalViewComponent },
-  { path: 'new-restaurant', component: NewRestaurantComponent}
+  { path: '', redirectTo: '/restaurants', pathMatch: 'full'},
+  { path: 'new-restaurant', component: NewRestaurantComponent},
+  { path: 'restaurants', component: PortalViewComponent},
+  { path: 'restaurants/:restId', component: PortalViewComponent}
+
 ];
 
 @NgModule({
