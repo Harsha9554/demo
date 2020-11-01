@@ -10,13 +10,19 @@ import { RestaurantService } from '../../restaurant.service';
 export class PortalViewComponent implements OnInit {
 
   restaurants: any[];
+  reviews: any[];
   constructor(private restaurantService : RestaurantService, private route: ActivatedRoute) { }
 
   ngOnInit(){
     this.route.params.subscribe(
       (params: Params) => {
         console.log(params);
+        this.restaurantService.getReviews(params.restId).subscribe((reviews: any[])=>{
+          this.reviews = reviews;
+        })
       }
+
+
     )
 
     this.restaurantService.getRestaurants().subscribe((restaurants : any[])=>{

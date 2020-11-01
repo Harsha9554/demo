@@ -15,4 +15,8 @@ export class RestaurantService {
   getRestaurants(){
     return this.webReqService.get('restaurants');
   }
+
+  getReviews(restId: string) {
+    return this.webReqService.get(`restaurants/${restId}/reviews`);
+  }
 }

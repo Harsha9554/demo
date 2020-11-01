@@ -57,7 +57,7 @@ app.delete('/restaurants/:id', (req, res) => {
 });
 
 
-app.get('/restaurants/:restaurantId/review', (req, res) => {
+app.get('/restaurants/:restaurantId/reviews', (req, res) => {
    Review.find({
     _restaurantId: req.params.restaurantId
    }).then((review) => {
@@ -65,7 +65,7 @@ app.get('/restaurants/:restaurantId/review', (req, res) => {
    })
 });
 
-app.post('/restaurants/:restaurantId/review',(req, res)=>{
+app.post('/restaurants/:restaurantId/reviews',(req, res)=>{
     let newReview = new Review({
         customerName: req.body.customerName,
         reviewDescription: req.body.reviewDescription,
@@ -77,7 +77,7 @@ app.post('/restaurants/:restaurantId/review',(req, res)=>{
     })
 });
 
-app.patch('/restaurants/:restaurantId/review/:id',(req, res)=> {
+app.patch('/restaurants/:restaurantId/reviews/:id',(req, res)=> {
     Review.findOneAndUpdate({
         _id:req.params.id
     }, {

@@ -6,10 +6,7 @@
         </h1>
 
         <div class="res-menu">
-          <a class="res-menu-item is-active">
-            <p>Res #1</p>
-          </a>
-          <a class="res-menu-item" *ngFor="let rest of restaurants">
+          <a class="res-menu-item" *ngFor="let rest of restaurants" [routerLink]="['/restaurants',rest._id]" routerLinkActive="is-active">
             <p> {{rest.title}}</p>
           </a>
         </div>
@@ -26,14 +23,8 @@
         </h1>
 
         <!--Review Elements-->
-        <div class="rev">
-          <p>Rev #1</p>
-        </div>
-        <div class="rev">
-          <p>Rev #2</p>
-        </div>
-        <div class="rev complete">
-          <p>Rev #3</p>
+        <div class="rev" *ngFor="let rev of reviews">
+          <p>{{rev.reviewDescription}}</p>
         </div>
 
      </div>
